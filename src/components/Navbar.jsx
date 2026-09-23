@@ -1,112 +1,434 @@
+
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
-import ajmsLogo from "../images/ajms-logo.png";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import ajmsLogo from "../images/ajms-logo-transparent.png";
 
-const links = [
-  ["/", "Home"],
-  ["/about", "About Us"],
-  ["/services", "Services"],
-  ["/contact", "Contact"],
-];
+import { services } from "../data";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
-  const navClass = ({ isActive }) =>
-    `text-sm font-semibold transition ${
-      isActive
-        ? "text-cyan-600"
-        : "text-slate-600 hover:text-cyan-600"
-    }`;
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setMobileServicesOpen(false);
+  };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur navbar-reveal">
-      <div className="container-shell flex h-20 items-center justify-between">
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#061a2b]/95 backdrop-blur-md">
+
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
+
+        {/* =====================================================
+            LOGO
+        ===================================================== */}
 
         {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-3"
-          onClick={() => setOpen(false)}
-        >
-          <span className="flex h-17 w-17 items-center justify-center overflow-hidden rounded-xl bg-slate-950 shadow-lg">
-            <img
-              src={ajmsLogo}
-              alt="AJMS Marine Logo"
-              className="h-full w-full object-contain"
-            />
-          </span>
+<Link
+  to="/"
+  onClick={closeMenu}
+  className="flex items-center gap-3"
+>
+  {/* Company Name */}
+  <div>
+    <h1 className="text-xl font-bold tracking-[0.2em] text-white">
+      AJMS
+    </h1>
 
-          <span>
-            <span className="block text-lg font-black tracking-[.18em] text-slate-950">
-              AJMS
-            </span>
+    <p className="text-[9px] tracking-[0.28em] text-cyan-300">
+      MARINE SERVICES
+    </p>
+  </div>
 
-            <span className="-mt-1 block text-[10px] font-bold tracking-[.38em] text-cyan-600">
-              MARINE
-            </span>
-          </span>
-        </Link>
+  {/* AJMS Logo */}
+  <img
+    src={ajmsLogo}
+    alt="AJMS Marine Services"
+    className="h-12 w-12 object-contain"
+  />
+</Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map(([to, label]) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={navClass}
+
+        {/* =====================================================
+            DESKTOP NAVIGATION
+        ===================================================== */}
+
+        <nav className="hidden items-center gap-8 lg:flex">
+
+          {/* HOME */}
+
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `text-sm font-medium transition ${
+                isActive
+                  ? "text-cyan-300"
+                  : "text-white/80 hover:text-cyan-300"
+              }`
+            }
+          >
+            Home
+          </NavLink>
+
+
+          {/* ABOUT */}
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `text-sm font-medium transition ${
+                isActive
+                  ? "text-cyan-300"
+                  : "text-white/80 hover:text-cyan-300"
+              }`
+            }
+          >
+            About Us
+          </NavLink>
+
+
+          {/* =================================================
+              SERVICES DROPDOWN
+          ================================================= */}
+
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+
+            <button
+              type="button"
+              className="flex items-center gap-1 text-sm font-medium text-white/80 transition hover:text-cyan-300"
             >
-              {label}
-            </NavLink>
-          ))}
+              Services
+
+              <ChevronDown
+                size={15}
+                className={`transition-transform duration-200 ${
+                  servicesOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+
+            {servicesOpen && (
+              <div className="absolute left-0 top-full pt-4">
+
+                <div className="w-72 overflow-hidden rounded-2xl border border-white/10 bg-[#082238] p-2 shadow-2xl">
+
+                  {/* ALL SERVICES */}
+
+                  <Link
+                    to="/services"
+                    onClick={() => setServicesOpen(false)}
+                    className="mb-1 block rounded-xl border-b border-white/10 px-4 py-3.5 text-sm font-semibold text-cyan-300 transition hover:bg-cyan-400/10"
+                  >
+                    All Services
+                  </Link>
+
+
+                  {/* INDIVIDUAL SERVICES */}
+
+                  {services.map((service) => (
+
+                    <Link
+                      key={service.id}
+                      to={`/services/${service.id}`}
+                      onClick={() => setServicesOpen(false)}
+                      className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm text-white/75 transition hover:bg-cyan-400/10 hover:text-cyan-300"
+                    >
+
+                      <span>
+                        {service.title}
+                      </span>
+
+                      <span className="text-xs text-white/20 transition group-hover:translate-x-1 group-hover:text-cyan-400">
+                        →
+                      </span>
+
+                    </Link>
+
+                  ))}
+
+                </div>
+
+              </div>
+            )}
+
+          </div>
+
+
+          {/* PORT COVERAGE */}
+
+          <NavLink
+            to="/ports"
+            className={({ isActive }) =>
+              `text-sm font-medium transition ${
+                isActive
+                  ? "text-cyan-300"
+                  : "text-white/80 hover:text-cyan-300"
+              }`
+            }
+          >
+            Port Coverage
+          </NavLink>
+
+
+          {/* PROJECTS */}
+{/* 
+          <NavLink
+            to="/projects"
+            className={({ isActive }) =>
+              `text-sm font-medium transition ${
+                isActive
+                  ? "text-cyan-300"
+                  : "text-white/80 hover:text-cyan-300"
+              }`
+            }
+          >
+            Projects
+          </NavLink> */}
+
+
+          {/* BLOG */}
+
+          {/* <NavLink
+            to="/blog"
+            className={({ isActive }) =>
+              `text-sm font-medium transition ${
+                isActive
+                  ? "text-cyan-300"
+                  : "text-white/80 hover:text-cyan-300"
+              }`
+            }
+          >
+            Blog
+          </NavLink> */}
+
+
+          {/* CONTACT */}
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `text-sm font-medium transition ${
+                isActive
+                  ? "text-cyan-300"
+                  : "text-white/80 hover:text-cyan-300"
+              }`
+            }
+          >
+            Contact
+          </NavLink>
+
+        </nav>
+
+
+        {/* =====================================================
+            DESKTOP CTA
+        ===================================================== */}
+
+        <div className="hidden lg:block">
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-cyan-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-cyan-600/20 transition hover:bg-cyan-700"
+            className="group flex items-center gap-2 rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-[#041522] transition hover:bg-cyan-300"
           >
-            <Phone size={16} />
-            Get a Quote
-          </Link>
-        </nav>
 
-        {/* Mobile Menu Button */}
+            <Phone size={15} />
+
+            Get a Quote
+
+          </Link>
+
+        </div>
+
+
+        {/* =====================================================
+            MOBILE MENU BUTTON
+        ===================================================== */}
+
         <button
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-white lg:hidden"
           aria-label="Toggle menu"
         >
-          {open ? <X size={26} /> : <Menu size={26} />}
+          {menuOpen ? (
+            <X size={27} />
+          ) : (
+            <Menu size={27} />
+          )}
         </button>
+
       </div>
 
-      {/* Mobile Navigation */}
-      {open && (
-        <div className="border-t border-slate-200 bg-white px-4 py-5 md:hidden">
-          <div className="container-shell flex flex-col gap-4">
 
-            {links.map(([to, label]) => (
-              <NavLink
-                key={to}
-                to={to}
-                onClick={() => setOpen(false)}
-                className={navClass}
-              >
-                {label}
-              </NavLink>
-            ))}
+      {/* =====================================================
+          MOBILE NAVIGATION
+      ===================================================== */}
+
+      {menuOpen && (
+
+        <div className="max-h-[calc(100vh-80px)] overflow-y-auto border-t border-white/10 bg-[#061a2b] px-5 pb-6 pt-4 lg:hidden">
+
+          <div className="flex flex-col gap-1">
+
+
+            {/* HOME */}
 
             <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="rounded-xl bg-cyan-600 px-4 py-3 text-center font-bold text-white transition hover:bg-cyan-700"
+              onClick={closeMenu}
+              to="/"
+              className="rounded-lg px-4 py-3 text-white/80 transition hover:bg-white/5 hover:text-cyan-300"
             >
+              Home
+            </Link>
+
+
+            {/* ABOUT */}
+
+            <Link
+              onClick={closeMenu}
+              to="/about"
+              className="rounded-lg px-4 py-3 text-white/80 transition hover:bg-white/5 hover:text-cyan-300"
+            >
+              About Us
+            </Link>
+
+
+            {/* =================================================
+                MOBILE SERVICES
+            ================================================= */}
+
+            <div>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setMobileServicesOpen(!mobileServicesOpen)
+                }
+                className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-white/80 transition hover:bg-white/5 hover:text-cyan-300"
+              >
+
+                <span>
+                  Services
+                </span>
+
+                <ChevronDown
+                  size={17}
+                  className={`transition-transform duration-200 ${
+                    mobileServicesOpen
+                      ? "rotate-180"
+                      : ""
+                  }`}
+                />
+
+              </button>
+
+
+              {mobileServicesOpen && (
+
+                <div className="ml-3 mt-1 border-l border-cyan-400/20 pl-3">
+
+                  {/* ALL SERVICES */}
+
+                  <Link
+                    onClick={closeMenu}
+                    to="/services"
+                    className="block rounded-lg px-4 py-3 text-sm font-semibold text-cyan-300 transition hover:bg-cyan-400/10"
+                  >
+                    All Services
+                  </Link>
+
+
+                  {/* INDIVIDUAL SERVICES */}
+
+                  {services.map((service) => (
+
+                    <Link
+                      key={service.id}
+                      onClick={closeMenu}
+                      to={`/services/${service.id}`}
+                      className="block rounded-lg px-4 py-2.5 text-sm text-white/65 transition hover:bg-cyan-400/10 hover:text-cyan-300"
+                    >
+                      {service.title}
+                    </Link>
+
+                  ))}
+
+                </div>
+
+              )}
+
+            </div>
+
+
+            {/* PORT COVERAGE */}
+
+            <Link
+              onClick={closeMenu}
+              to="/ports"
+              className="rounded-lg px-4 py-3 text-white/80 transition hover:bg-white/5 hover:text-cyan-300"
+            >
+              Port Coverage
+            </Link>
+
+
+            {/* PROJECTS */}
+
+            <Link
+              onClick={closeMenu}
+              to="/projects"
+              className="rounded-lg px-4 py-3 text-white/80 transition hover:bg-white/5 hover:text-cyan-300"
+            >
+              Projects
+            </Link>
+
+
+            {/* BLOG */}
+
+            <Link
+              onClick={closeMenu}
+              to="/blog"
+              className="rounded-lg px-4 py-3 text-white/80 transition hover:bg-white/5 hover:text-cyan-300"
+            >
+              Blog
+            </Link>
+
+
+            {/* CONTACT */}
+
+            <Link
+              onClick={closeMenu}
+              to="/contact"
+              className="rounded-lg px-4 py-3 text-white/80 transition hover:bg-white/5 hover:text-cyan-300"
+            >
+              Contact
+            </Link>
+
+
+            {/* CTA */}
+
+            <Link
+              onClick={closeMenu}
+              to="/contact"
+              className="mt-3 flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-5 py-3 font-semibold text-[#041522]"
+            >
+              <Phone size={16} />
               Get a Quote
             </Link>
 
           </div>
+
         </div>
+
       )}
+
     </header>
   );
 }
+

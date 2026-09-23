@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Anchor, Mail, Phone, MapPin } from "lucide-react";
+import ajmsLogo from "../images/ajms-logo-transparent.png";
 
 const footerLinkState = { state: { scrollTo: "footer" } };
 
@@ -8,15 +9,23 @@ export default function Footer() {
     <footer id="site-footer" className="bg-slate-950 text-slate-300">
       <div className="container-shell grid gap-12 py-16 md:grid-cols-[1.3fr_.8fr_1fr]">
         <div>
-          <div className="mb-5 flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-xl bg-cyan-500 text-slate-950">
-              <Anchor size={22} />
-            </span>
-            <div>
-              <div className="font-black tracking-[.18em] text-white">AJMS MARINE</div>
-              <div className="text-xs text-cyan-300">MARINE DIVING & SHIP SERVICES</div>
-            </div>
-          </div>
+          <div className="flex items-center gap-3">
+  <img
+    src={ajmsLogo}
+    alt="AJMS Marine Services"
+    className="h-16 w-16 object-contain"
+  />
+
+  <div>
+    <h2 className="text-xl font-bold tracking-[0.2em] text-white">
+      AJMS
+    </h2>
+
+    <p className="text-[9px] tracking-[0.28em] text-cyan-300">
+      MARINE SERVICES
+    </p>
+  </div>
+</div>
           <p className="max-w-md text-sm leading-7 text-slate-400">
             Professional marine diving, underwater inspection, hull cleaning,
             propeller polishing and marine maintenance services.

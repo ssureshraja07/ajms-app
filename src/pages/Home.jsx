@@ -1,75 +1,428 @@
+
+import { motion } from "framer-motion";
+import heroVideo from "../images/ajms-hero.mp4";
+import service1 from "../images/service-1.png";
+import service2 from "../images/service-2.png";
+import service3 from "../images/service-3.png";
+import service4 from "../images/service-4.png";
+
+import {
+  ArrowRight,
+  Anchor,
+  Waves,
+  ShieldCheck,
+  MapPin,
+  ChevronDown,
+} from "lucide-react";
+
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Waves, Gauge, ChevronRight } from "lucide-react";
-import { services } from "../data";
-import ServiceCard from "../components/ServiceCard";
-import SectionHeading from "../components/SectionHeading";
-import Reveal from "../components/Reveal";
 
 export default function Home() {
+  const services = [
+  {
+    number: "01",
+    title: "Underwater Inspection",
+    text: "Professional underwater inspection and marine assessment services for vessels and marine structures.",
+    image: service1,
+  },
+
+  {
+    number: "02",
+    title: "Hull & Propeller",
+    text: "Inspection, cleaning and maintenance support to keep vessel operations running efficiently.",
+    image: service2,
+  },
+
+  {
+    number: "03",
+    title: "Underwater Repairs",
+    text: "Responsive underwater repair and maintenance solutions for demanding marine environments.",
+    image: service3,
+  },
+
+  {
+    number: "04",
+    title: "Marine Support",
+    text: "Reliable marine support for vessels, ports, terminals and maritime operations.",
+    image: service4,
+  },
+];
+
+  const ports = [
+    "Tuticorin",
+    "Chennai",
+    "Ennore",
+    "Krishnapatnam",
+    "Nagapattinam",
+    "Cuddalore",
+    "Vizag",
+    "Kakinada",
+    "Gangavaram",
+    "Karaikal",
+    "Paradip",
+    "Kolkata",
+    "Vizhinjam",
+    "Kochi",
+    "New Mangalore",
+    "Goa",
+    "Mumbai",
+    "Kandla",
+    "Jamnagar",
+    "Sikka",
+    "Vadinar",
+    "Mundra",
+    "Dahej",
+    "Pipavav",
+  ];
+
   return (
-    <>
-<section className="relative overflow-hidden bg-slate-950 hero-reveal">
-        <div className="hero-grid absolute inset-0 opacity-70" />
-        <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl" />
-        <div className="container-shell relative grid min-h-[650px] items-center gap-12 py-20 lg:grid-cols-[1.05fr_.95fr]">
-          <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[.2em] text-cyan-200">
-              <Waves size={15} /> Marine Diving & Ship Services
-            </div>
-            <h1 className="text-5xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Precision below the surface. <span className="text-cyan-300">Confidence above it.</span>
-            </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
-              AJMS MARINE delivers professional underwater operations, ship inspection, hull cleaning and marine maintenance services.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-6 py-3.5 font-bold text-slate-950 hover:bg-cyan-400">Explore Services <ArrowRight size={18} /></Link>
-              <Link to="/about" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-bold text-white hover:bg-white/10">About AJMS</Link>
-            </div>
-            <div className="mt-12 grid max-w-xl grid-cols-3 gap-4 border-t border-white/10 pt-7">
-              <div><ShieldCheck className="mb-2 text-cyan-300" size={21}/><div className="text-sm font-bold text-white">Safety Focus</div><div className="text-xs text-slate-400">Professional operations</div></div>
-              <div><Waves className="mb-2 text-cyan-300" size={21}/><div className="text-sm font-bold text-white">Underwater</div><div className="text-xs text-slate-400">Inspection & service</div></div>
-              <div><Gauge className="mb-2 text-cyan-300" size={21}/><div className="text-sm font-bold text-white">Performance</div><div className="text-xs text-slate-400">Vessel maintenance</div></div>
-            </div>
-          </div>
+    <main className="bg-[#f7fafc] text-[#071b2d]">
 
-          <div className="relative hidden lg:block">
-            <div className="absolute -inset-6 rounded-[3rem] bg-cyan-500/10 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1400&q=90" alt="Marine vessel at sea" className="hero-image-motion h-[520px] w-full object-cover" />
-              <div className="absolute inset-x-6 bottom-6 glass rounded-2xl p-5">
-                <div className="text-xs font-bold uppercase tracking-[.2em] text-cyan-300">AJMS MARINE</div>
-                <div className="mt-1 text-lg font-black text-white">Reliable marine support, from surface to seabed.</div>
+      {/* =====================================================
+          HERO VIDEO SECTION
+      ===================================================== */}
+
+     {/* =====================================================
+    HERO VIDEO - CLEAN
+===================================================== */}
+
+<section className="relative h-screen w-full overflow-hidden bg-black">
+
+  {/* Video */}
+  <video
+    className="absolute inset-0 h-full w-full object-cover"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+  >
+    <source src={heroVideo} type="video/mp4" />
+  </video>
+
+  {/* Optional dark overlay */}
+  <div className="absolute inset-0 bg-black/20" />
+
+</section>
+
+      {/* =====================================================
+          ABOUT AJMS
+      ===================================================== */}
+
+      <section className="bg-white py-24 lg:py-32">
+
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+
+          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-600">
+                About AJMS
+              </p>
+
+              <h2 className="text-4xl font-bold leading-tight text-[#071b2d] sm:text-5xl">
+
+                Built close to the sea.
+
+                <br />
+
+                <span className="text-cyan-600">
+                  Ready to respond.
+                </span>
+
+              </h2>
+
+              <p className="mt-7 max-w-xl text-base leading-8 text-slate-600">
+                Headquartered in Tuticorin, India, strategically positioned
+                next to the VOC Port, AJMS is built to respond swiftly to
+                maritime demands.
+              </p>
+
+              <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">
+                Our teams deliver rapid marine support across major and
+                remote Indian ports, helping vessel owners, operators and
+                maritime businesses keep their operations moving.
+              </p>
+
+              <Link
+                to="/about"
+                className="group mt-8 inline-flex items-center gap-3 font-semibold text-[#071b2d]"
+              >
+                Discover AJMS
+
+                <ArrowRight
+                  size={18}
+                  className="text-cyan-600 transition-transform group-hover:translate-x-1"
+                />
+
+              </Link>
+
+            </motion.div>
+
+
+            {/* Statistics */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="grid grid-cols-2 gap-4"
+            >
+
+              {/* Card 1 */}
+              <div className="rounded-2xl bg-[#071b2d] p-7 text-white">
+
+                <Anchor
+                  className="mb-6 text-cyan-300"
+                  size={30}
+                />
+
+                <p className="text-4xl font-bold">
+                  25+
+                </p>
+
+                <p className="mt-2 text-sm text-white/60">
+                  Major Indian Ports
+                </p>
+
               </div>
-            </div>
+
+
+              {/* Card 2 */}
+              <div className="mt-8 rounded-2xl bg-cyan-50 p-7 text-[#071b2d]">
+
+                <Waves
+                  className="mb-6 text-cyan-600"
+                  size={30}
+                />
+
+                <p className="text-4xl font-bold">
+                  24/7
+                </p>
+
+                <p className="mt-2 text-sm text-slate-500">
+                  Marine Response
+                </p>
+
+              </div>
+
+
+              {/* Card 3 */}
+              <div className="rounded-2xl bg-cyan-600 p-7 text-white">
+
+                <MapPin
+                  className="mb-6"
+                  size={30}
+                />
+
+                <p className="text-4xl font-bold">
+                  2
+                </p>
+
+                <p className="mt-2 text-sm text-white/70">
+                  Coastline Networks
+                </p>
+
+              </div>
+
+
+              {/* Card 4 */}
+              <div className="mt-8 rounded-2xl bg-slate-100 p-7 text-[#071b2d]">
+
+                <ShieldCheck
+                  className="mb-6 text-cyan-600"
+                  size={30}
+                />
+
+                <p className="text-4xl font-bold">
+                  Safe
+                </p>
+
+                <p className="mt-2 text-sm text-slate-500">
+                  Professional Operations
+                </p>
+
+              </div>
+
+            </motion.div>
+
           </div>
+
         </div>
+
       </section>
 
-      <section className="container-shell py-24">
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <Reveal><SectionHeading eyebrow="Our Services" title="Complete marine service capabilities" description="Explore our core services. Select any service to view its dedicated details." /></Reveal>
-          <Link to="/services" className="inline-flex items-center gap-2 font-bold text-cyan-700">View all services <ChevronRight size={18}/></Link>
+{/* =====================================================
+    SERVICES
+===================================================== */}
+
+<section className="bg-[#f4f8fa] py-24 lg:py-32">
+
+  <div className="mx-auto max-w-7xl px-5 lg:px-8">
+
+    {/* Heading */}
+    <div className="max-w-2xl">
+
+      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-600">
+        What We Do
+      </p>
+
+      <h2 className="mt-4 text-4xl font-bold text-[#071b2d] sm:text-5xl">
+        Marine services built
+        <br />
+        for real-world demands.
+      </h2>
+
+    </div>
+
+{/* Service Cards */}
+<div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+
+  {services.map((service, index) => (
+
+    <motion.div
+      key={service.number}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.1,
+      }}
+    >
+
+      <Link
+        to="/services"
+        className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:border-cyan-200 hover:shadow-xl"
+      >
+
+        {/* Image */}
+        <div className="relative h-52 overflow-hidden">
+
+          <img
+            src={service.image}
+            alt={service.title}
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+          />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071b2d]/70 via-transparent to-transparent" />
+
+          {/* Number */}
+          <span className="absolute bottom-4 left-5 text-sm font-bold text-white">
+            {service.number}
+          </span>
+
         </div>
-        <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <Reveal key={service.id} delay={index * 90}>
-              <ServiceCard service={service} />
-            </Reveal>
-          ))}
+
+
+        {/* Content */}
+        <div className="p-7">
+
+          <div className="flex items-start justify-end">
+
+            <ArrowRight
+              size={20}
+              className="text-slate-300 transition duration-300 group-hover:translate-x-1 group-hover:text-cyan-600"
+            />
+
+          </div>
+
+          <h3 className="mt-5 text-xl font-bold text-[#071b2d]">
+            {service.title}
+          </h3>
+
+          <p className="mt-4 text-sm leading-7 text-slate-500">
+            {service.text}
+          </p>
+
         </div>
+
+      </Link>
+
+    </motion.div>
+
+  ))}
+
+</div>
+
+
+    {/* Button */}
+    <div className="mt-10">
+
+      <Link
+        to="/services"
+        className="inline-flex items-center gap-2 rounded-full bg-[#071b2d] px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-600"
+      >
+        View All Services
+
+        <ArrowRight size={16} />
+
+      </Link>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+      {/* =====================================================
+          PORT COVERAGE
+      ===================================================== */}
+
+
+
+      {/* =====================================================
+          FINAL CTA
+      ===================================================== */}
+
+      <section className="bg-white py-24 lg:py-32">
+
+        <div className="mx-auto max-w-5xl px-5 text-center">
+
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-600">
+            Ready When You Need Us
+          </p>
+
+          <h2 className="mt-5 text-4xl font-bold leading-tight text-[#071b2d] sm:text-6xl">
+
+            Need marine support?
+
+            <br />
+
+            <span className="text-cyan-600">
+              Let's get to work.
+            </span>
+
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-slate-500">
+            Tell us about your requirement, vessel or port location
+            and our team will get back to you.
+          </p>
+
+          <Link
+            to="/contact"
+            className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#071b2d] px-8 py-4 font-semibold text-white transition hover:bg-cyan-600"
+          >
+            Contact AJMS
+
+            <ArrowRight size={18} />
+
+          </Link>
+
+        </div>
+
       </section>
 
-      <section className="bg-cyan-50">
-        <div className="container-shell grid gap-10 py-20 md:grid-cols-2 md:items-center">
-          <SectionHeading eyebrow="Why AJMS MARINE" title="Built around safety, precision and vessel performance" description="Our service approach combines underwater expertise with practical vessel maintenance support, helping clients keep marine assets inspected, maintained and operational." />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {["Professional underwater operations", "Maintenance-focused service planning", "Inspection and survey support", "Marine safety equipment services"].map((x) => (
-              <div key={x} className="rounded-2xl border border-cyan-100 bg-white p-5 font-bold text-slate-800 shadow-sm"><ShieldCheck className="mb-3 text-cyan-600" size={22}/>{x}</div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+    </main>
   );
 }
