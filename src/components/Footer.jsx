@@ -10,21 +10,30 @@ export default function Footer() {
       <div className="container-shell grid gap-12 py-16 md:grid-cols-[1.3fr_.8fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
+             <div className="flex items-center gap-2">
+  {/* AJ - Left */}
+  <h1 className="text-xl font-bold tracking-[0.2em] text-white">
+    AJ
+  </h1>
+
+  {/* MARINE + SERVICES - Right */}
+  <div className="flex flex-col leading-none">
+    <p className="text-[9px] font-bold tracking-[0.28em] text-cyan-300">
+      MARINE
+    </p>
+
+    <p className="mt-1 text-[9px] font-bold tracking-[0.28em] text-cyan-300">
+      SERVICES
+    </p>
+  </div>
+</div>
   <img
     src={ajmsLogo}
     alt="AJMS Marine Services"
     className="h-16 w-16 object-contain"
   />
 
-  <div>
-    <h2 className="text-xl font-bold tracking-[0.2em] text-white">
-      AJ
-    </h2>
-
-    <p className="text-[9px] tracking-[0.28em] text-cyan-300">
-      MARINE SERVICES
-    </p>
-  </div>
+ 
 </div>
           <p className="max-w-md text-sm leading-7 text-slate-400">
             Professional marine diving, underwater inspection, hull cleaning,

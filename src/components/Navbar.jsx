@@ -32,15 +32,23 @@ export default function Navbar() {
   className="flex items-center gap-3"
 >
   {/* Company Name */}
-  <div>
-    <h1 className="text-xl font-bold tracking-[0.2em] text-white">
-      AJ
-    </h1>
+ <div className="flex items-center gap-2">
+  {/* AJ - Left */}
+  <h1 className="text-xl font-bold tracking-[0.2em] text-white">
+    AJ
+  </h1>
 
-    <p className="text-[9px] tracking-[0.28em] text-cyan-300">
-      MARINE  
+  {/* MARINE + SERVICES - Right */}
+  <div className="flex flex-col leading-none">
+    <p className="text-[9px] font-bold tracking-[0.28em] text-cyan-300">
+      MARINE
+    </p>
+
+    <p className="mt-1 text-[9px] font-bold tracking-[0.28em] text-cyan-300">
+      SERVICES
     </p>
   </div>
+</div>
 
   {/* AJMS Logo */}
   <img
