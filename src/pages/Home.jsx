@@ -124,7 +124,7 @@ export default function Home() {
             >
 
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-600">
-                About AJMS
+                About AJ MARINE SERVICES  
               </p>
 
               <h2 className="text-4xl font-bold leading-tight text-[#071b2d] sm:text-5xl">
@@ -155,7 +155,7 @@ export default function Home() {
                 to="/about"
                 className="group mt-8 inline-flex items-center gap-3 font-semibold text-[#071b2d]"
               >
-                Discover AJMS
+                Discover AJ MARINE SERVICES
 
                 <ArrowRight
                   size={18}
@@ -413,7 +413,7 @@ export default function Home() {
             to="/contact"
             className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#071b2d] px-8 py-4 font-semibold text-white transition hover:bg-cyan-600"
           >
-            Contact AJMS
+            Contact AJ MARINE
 
             <ArrowRight size={18} />
 

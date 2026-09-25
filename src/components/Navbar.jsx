@@ -34,11 +34,11 @@ export default function Navbar() {
   {/* Company Name */}
   <div>
     <h1 className="text-xl font-bold tracking-[0.2em] text-white">
-      AJMS
+      AJ
     </h1>
 
     <p className="text-[9px] tracking-[0.28em] text-cyan-300">
-      MARINE SERVICES
+      MARINE  
     </p>
   </div>
 

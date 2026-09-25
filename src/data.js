@@ -5,7 +5,7 @@ import service3 from "./images/service-3.png";
 import service4 from "./images/service-4.png";
 import service5 from "./images/service-5.png";
 import service6 from "./images/service-6.png";
-import service7 from "./images/service-7.png";
+
 
 export const services = [
   {
@@ -23,20 +23,34 @@ export const services = [
     tag: "Safety & Compliance",
 
     details: [
-      "Accurate and reliable calibration is essential for maintaining the performance of marine safety, monitoring, and measurement equipment.",
+  "Inspection and calibration of pressure gauges to help ensure accurate and reliable pressure readings during marine and vessel operations.",
 
-      "AJMS MARINE provides professional inspection and calibration support for marine equipment based on the specific requirements of vessels and operators.",
+  "Inspection and calibration of pressure and temperature transmitters, supporting dependable monitoring and measurement across vessel systems.",
 
-      "Our calibration services help ensure that measuring and monitoring equipment provides dependable readings during vessel operations.",
+  "Calibration of temperature sensors to maintain accurate temperature measurement and reliable monitoring performance.",
 
-      "We support vessel owners, operators, and marine teams with equipment inspection, calibration requirements, and service coordination.",
+  "Inspection and calibration of pressure and temperature calibrators to support accurate testing and verification of marine measurement equipment.",
 
-      "Each calibration activity is planned according to the equipment type, operating requirements, and agreed service scope.",
+  "Calibration of portable and fixed gas detectors to help maintain reliable gas monitoring and safety functions onboard vessels.",
 
-      "Our team focuses on accuracy, proper handling, and reliable documentation throughout the calibration process.",
+  "Inspection and functional testing of fixed gas detection systems to verify proper operation, detection performance, and system readiness.",
 
-      "Calibration records and relevant service documentation can be provided as part of the agreed scope to support vessel maintenance and compliance requirements.",
-    ],
+  "Calibration of UTI tapes to support accurate measurement and monitoring requirements during vessel and tank operations.",
+
+  "Inspection and calibration of oily water separator systems, including 15 ppm bilge alarm monitor systems, to support reliable operation and monitoring.",
+
+  "Calibration of Oil Discharge Monitoring Equipment (ODME) systems to help maintain accurate monitoring and dependable operational performance.",
+
+  "Inspection and calibration of vapour monitoring systems to support reliable vapour detection, measurement, and safe vessel operations.",
+
+  "Inspection and function testing of fire alarm systems to verify proper operation and readiness of critical onboard safety equipment.",
+
+  "Inspection and function testing of smoke detection systems to help ensure reliable detection and early warning capability onboard vessels.",
+
+  "AJ MARINE SERVICES supports vessel owners, operators, and marine teams with inspection, calibration, testing, and service coordination based on equipment type, operating requirements, and agreed service scope.",
+
+  "All activities are planned with attention to accuracy, proper equipment handling, operational requirements, and reliable service documentation to support vessel maintenance and compliance needs.",
+],
   },
 
   {
@@ -56,7 +70,7 @@ export const services = [
     details: [
       "Professional underwater diving support is essential for vessels that require inspection, maintenance, repair, or other underwater operations.",
 
-      "AJMS MARINE provides ship diving services for vessel owners, operators, marine contractors, and port-related requirements.",
+      "AJ MARINE SERVICES provides ship diving services for vessel owners, operators, marine contractors, and port-related requirements.",
 
       "Our underwater diving activities can support hull inspection, propeller inspection, underwater maintenance, cleaning, and other agreed marine requirements.",
 
@@ -89,7 +103,7 @@ export const services = [
 
       "Even a small build-up of marine growth on a vessel's underwater hull can increase resistance through the water, resulting in additional fuel consumption and increased emissions.",
 
-      "AJMS MARINE provides quick but thorough hull cleaning services designed to remove marine growth and fouling while giving careful attention to the vessel's underwater coating.",
+      "AJ MARINE SERVICES provides quick but thorough hull cleaning services designed to remove marine growth and fouling while giving careful attention to the vessel's underwater coating.",
 
       "Our approach focuses on protecting the existing hull coating while achieving the required level of underwater cleanliness.",
 
@@ -102,37 +116,54 @@ export const services = [
       "After completion, relevant observations can be documented to provide vessel operators with a clear record of the work performed and the underwater hull condition.",
     ],
   },
+{
+  id: "water-surveys",
 
-  {
-    id: "water-surveys",
+  title: "Water Surveys",
 
-    title: "Water Surveys",
+  description:
+    "Professional underwater inspection and in-water survey services for vessels and marine structures.",
 
-    description:
-      "Professional underwater inspection and in-water survey services for vessels and marine structures.",
+  image: service4,
 
-    image: service4,
+  icon: "📡",
 
-    icon: "📡",
+  tag: "Inspection & Survey",
 
-    tag: "Inspection & Survey",
+  details: [
+    "Accurate underwater information is essential when assessing the condition of vessels, marine structures, and subsea assets.",
 
-    details: [
-      "Accurate underwater information is essential when assessing the condition of vessels, marine structures, and subsea assets.",
+    "AJ MARINE SERVICES provides professional underwater inspection and in-water survey support for vessels and marine structures.",
 
-      "AJMS MARINE provides professional underwater inspection and in-water survey support for vessels and marine structures.",
+    "Our survey activities can include underwater visual inspection, condition assessment, photographic documentation, video inspection, and other agreed survey requirements.",
 
-      "Our survey activities can include underwater visual inspection, condition assessment, photographic documentation, video inspection, and other agreed survey requirements.",
+    "We can support inspection activities around vessel hulls, propellers, rudders, underwater structures, and other accessible areas below the waterline.",
 
-      "We can support inspection activities around vessel hulls, propellers, rudders, underwater structures, and other accessible areas below the waterline.",
+    "Survey planning takes into consideration the vessel's location, water conditions, underwater visibility, accessibility, and specific requirements of the assignment.",
 
-      "Survey planning takes into consideration the vessel's location, water conditions, underwater visibility, accessibility, and specific requirements of the assignment.",
+    "Relevant underwater findings can be documented through photographs, video footage, observations, and service reports depending on the scope of work.",
 
-      "Relevant underwater findings can be documented through photographs, video footage, observations, and service reports depending on the scope of work.",
+    "Our goal is to provide clear and useful underwater information that helps vessel owners and operators make informed maintenance and operational decisions.",
+  ],
 
-      "Our goal is to provide clear and useful underwater information that helps vessel owners and operators make informed maintenance and operational decisions.",
-    ],
-  },
+  additionalUnderwaterServices: [
+    "Underwater photography and video inspection",
+    "Underwater visual condition assessment",
+    "Hull, propeller and rudder inspection",
+    "Underwater structural inspection",
+    "Subsea condition documentation",
+    "Other agreed underwater inspection and service requirements",
+  ],
+
+  classApprovedInWaterSurveys: [
+    "Class-related in-water inspection support where applicable",
+    "Underwater visual examination of accessible hull areas",
+    "Photographic and video documentation of underwater findings",
+    "Identification and reporting of visible defects or abnormalities",
+    "Coordination with the attending classification surveyor or authorised representative",
+    "Survey activities carried out according to the agreed class and inspection requirements",
+  ],
+},
 
   {
     id: "propeller-polishing",
@@ -153,7 +184,7 @@ export const services = [
 
       "Marine growth, fouling, and surface roughness can affect the hydrodynamic performance of a propeller and increase resistance during operation.",
 
-      "AJMS MARINE provides underwater propeller polishing services designed to restore a cleaner and smoother propeller surface.",
+      "AJ MARINE SERVICES provides underwater propeller polishing services designed to restore a cleaner and smoother propeller surface.",
 
       "Our team can inspect the propeller condition before polishing and identify visible marine growth, fouling, or surface-related concerns.",
 
@@ -184,7 +215,7 @@ export const services = [
     details: [
       "Fire Fighting Appliances (FFA) and Life Saving Appliances (LSA) are essential components of vessel safety systems and require regular inspection, maintenance, testing, and service attention.",
 
-      "AJMS MARINE provides allied marine safety services supporting vessel owners and operators with FFA and LSA related requirements.",
+      "AJ MARINE SERVICES provides allied marine safety services supporting vessel owners and operators with FFA and LSA related requirements.",
 
       "Our service scope can include inspection, testing, maintenance support, servicing coordination, and documentation according to the agreed vessel requirements.",
 
@@ -200,37 +231,6 @@ export const services = [
     ],
   },
 
-  {
-    id: "ship-maintenance",
-
-    title: "Marine Ship Maintenance",
-
-    description:
-      "Comprehensive underwater ship maintenance services designed to protect and extend the life of marine assets.",
-
-    image: service7,
-
-    icon: "🔧",
-
-    tag: "Full Maintenance",
-
-    details: [
-      "Regular maintenance plays an important role in maintaining vessel reliability, operational readiness, and the long-term condition of marine assets.",
-
-      "AJMS MARINE provides comprehensive marine ship maintenance support based on the vessel's condition, operational requirements, and agreed scope of work.",
-
-      "Our maintenance support can include underwater inspection, hull-related maintenance, propeller-area maintenance, underwater repairs, cleaning, and other marine service requirements.",
-
-      "We work closely with vessel representatives to understand existing issues, maintenance priorities, vessel schedules, and the required scope before beginning the work.",
-
-      "Our team focuses on practical execution, efficient coordination, and minimising unnecessary disruption to vessel operations.",
-
-      "Maintenance activities are carried out with attention to vessel condition, worksite requirements, operational safety, and the specific nature of the service.",
-
-      "Regular maintenance and timely identification of underwater issues can help vessel operators address problems before they develop into more significant operational concerns.",
-
-      "Service reports and relevant observations can be prepared after completion to document the work performed and support future maintenance planning.",
-    ],
-  },
+  
 ];
 

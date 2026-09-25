@@ -18,7 +18,7 @@ export default function Footer() {
 
   <div>
     <h2 className="text-xl font-bold tracking-[0.2em] text-white">
-      AJMS
+      AJ
     </h2>
 
     <p className="text-[9px] tracking-[0.28em] text-cyan-300">
@@ -46,7 +46,10 @@ export default function Footer() {
           <h3 className="mb-5 font-bold text-white">Contact</h3>
           <div className="space-y-4 text-sm text-slate-400">
             <p className="flex gap-3"><Phone size={18} className="shrink-0 text-cyan-400" /> +0461 2903256</p>
-            <p className="flex gap-3"><Mail size={18} className="shrink-0 text-cyan-400" /> info@ajmsmarineservice.in</p>
+            <p className="flex gap-3"><Phone size={18} className="shrink-0 text-cyan-400" />  +91 91761 93208</p>
+            <p className="flex gap-3"><Mail size={18} className="shrink-0 text-cyan-400" /> sales@ajmarineservices.in</p>
+            <p className="flex gap-3"><Mail size={18} className="shrink-0 text-cyan-400" /> info@ajmarineservices.in</p>
+
             <p className="flex gap-3"><MapPin size={18} className="shrink-0 text-cyan-400" />No,1/26-4c6,First Floor,Kolipillai Nagar,Harbour Express Road, Tuticorin-628004Tamil Nadu, India</p>
           </div>
         </div>

@@ -103,7 +103,7 @@ export default function PortCoverage() {
             {/* Description */}
             <p className="mt-7 max-w-2xl text-base leading-8 text-white/70 sm:text-lg">
               Headquartered in Tuticorin, strategically positioned next to
-              VOC Port, AJMS provides rapid marine and underwater service
+              VOC Port, AJ MARINE SERVICES provides rapid marine and underwater service
               support across major and remote ports throughout India.
             </p>
 
@@ -231,7 +231,7 @@ export default function PortCoverage() {
               </h2>
 
               <p className="mt-7 max-w-xl text-base leading-8 text-slate-600">
-                AJMS is headquartered in Tuticorin, Tamil Nadu, strategically
+                AJ MARINE SERVICES is headquartered in Tuticorin, Tamil Nadu, strategically
                 positioned beside VOC Port. This location allows our team to
                 respond efficiently to vessel and marine service requirements.
               </p>
@@ -243,7 +243,7 @@ export default function PortCoverage() {
               </p>
 
               <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
-                Our port network enables AJMS to provide responsive marine,
+                Our port network enables AJ MARINE SERVICES to provide responsive marine,
                 underwater, inspection, maintenance and allied services where
                 vessels need them.
               </p>
@@ -402,7 +402,7 @@ export default function PortCoverage() {
             </h2>
 
             <p className="mt-5 max-w-2xl leading-8 text-slate-500">
-              AJMS also supports maritime requirements across the western
+              AJ MARINE SERVICES also supports maritime requirements across the western
               coastline, connecting major commercial ports with our marine
               service capabilities.
             </p>
@@ -477,7 +477,7 @@ export default function PortCoverage() {
             <br />
 
             <span className="text-cyan-300">
-              AJMS is ready to respond.
+              AJ MARINE SERVICES is ready to respond.
             </span>
 
           </h2>
@@ -503,7 +503,7 @@ export default function PortCoverage() {
               to="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-4 font-semibold text-white transition hover:border-cyan-300 hover:bg-white/10"
             >
-              Contact AJMS
+              Contact AJ MARINE SERVICES
             </Link>
 
           </div>
@@ -511,14 +511,7 @@ export default function PortCoverage() {
         </div>
 
       </section>
-
-
-      {/* =====================================================
-          FOOTER
-      ===================================================== */}
-
-      <Footer />
-
+     
     </div>
   );
 }
