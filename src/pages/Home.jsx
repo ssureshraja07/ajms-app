@@ -5,6 +5,7 @@ import service1 from "../images/service-1.png";
 import service2 from "../images/service-2.png";
 import service3 from "../images/service-3.png";
 import service4 from "../images/service-4.png";
+import support from "../images/support.png";
 
 import {
   ArrowRight,
@@ -22,7 +23,7 @@ export default function Home() {
   {
     number: "01",
     title: "Calibration",
-    text: "Professional underwater inspection and marine assessment services for vessels and marine structures.",
+    text: "Professional inspection and calibration services for marine safety, monitoring, and measurement equipment.",
     image: service1,
   },
 
@@ -44,7 +45,7 @@ export default function Home() {
     number: "04",
     title: "Marine Support",
     text: "Reliable marine support for vessels, ports, terminals and maritime operations.",
-    image: service4,
+    image: support,
   },
 ];
 

@@ -25,30 +25,29 @@ export default function Navbar() {
             LOGO
         ===================================================== */}
 
-        {/* Logo */}
-<Link
-  to="/"
-  onClick={closeMenu}
-  className="flex items-center gap-3"
->
+      {/* Logo */}
+<Link to="/" onClick={closeMenu} className="flex items-center gap-3">
   {/* Company Name */}
- <div className="flex items-center gap-2">
-  {/* AJ - Left */}
-  <h1 className="text-xl font-bold tracking-[0.2em] text-white">
-    AJ
-  </h1>
+  <div className="flex items-center gap-3">
+    {/* AJ - Left */}
+    <h1 className="bg-gradient-to-b from-white to-cyan-300 bg-clip-text font-['Orbitron'] text-3xl font-black tracking-[0.12em] text-transparent">
+      AJ
+    </h1>
 
-  {/* MARINE + SERVICES - Right */}
-  <div className="flex flex-col leading-none">
-    <p className="text-[9px] font-bold tracking-[0.28em] text-cyan-300">
-      MARINE
-    </p>
+    {/* Divider line */}
+    <span className="h-8 w-px bg-gradient-to-b from-transparent via-cyan-300/70 to-transparent" />
 
-    <p className="mt-1 text-[9px] font-bold tracking-[0.28em] text-cyan-300">
-      SERVICES
-    </p>
+    {/* MARINE + SERVICES - Right */}
+    <div className="flex flex-col leading-none">
+      <p className="font-['Rajdhani'] text-[13px] font-bold tracking-[0.35em] text-white">
+        MARINE
+      </p>
+
+      <p className="mt-1 font-['Rajdhani'] text-[13px] font-semibold tracking-[0.35em] text-cyan-300">
+        SERVICES
+      </p>
+    </div>
   </div>
-</div>
 
   {/* AJMS Logo */}
   <img

@@ -16,7 +16,7 @@ export const services = [
   {
     id: "calibration",
 
-    title: "Calibration",
+    title: "Calibration Services",
 
     description:
       "Professional inspection and calibration services for marine safety, monitoring, and measurement equipment.",
@@ -61,7 +61,7 @@ export const services = [
   {
   id: "ship-diving",
 
-  title: "Ship Diving",
+  title: "Ship Diving Services",
 
   description:
     "Professional underwater diving and ship maintenance services carried out by qualified diving professionals.",
@@ -163,7 +163,7 @@ export const services = [
   {
     id: "allied-services",
 
-    title: "FFA/LSA",
+    title: "FFA/LSA Services",
 
     description:
       "Specialized fire fighting and life saving appliance inspection, testing, and allied marine services.",
