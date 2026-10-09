@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+import port from "../images/port.png";
+
 export default function PortCoverage() {
   const eastCoastPorts = [
     "Chennai",
@@ -60,6 +62,12 @@ export default function PortCoverage() {
 
       <section className="relative overflow-hidden bg-[#061a2b] pt-32 pb-24 lg:pt-40 lg:pb-32">
 
+         <img
+    src={port}
+    alt="Hero background"
+    className="absolute inset-0 h-full w-full object-cover"
+  />
+
         {/* Decorative Glow */}
         <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-cyan-400/10 blur-3xl" />
 
@@ -101,7 +109,7 @@ export default function PortCoverage() {
 
 
             {/* Description */}
-            <p className="mt-7 max-w-2xl text-base leading-8 text-white/70 sm:text-lg">
+            <p className="mt-7 max-w-2xl text-base leading-8 text-white/100 sm:text-lg">
               Headquartered in Tuticorin, strategically positioned next to
               VOC Port, AJ MARINE SERVICES provides rapid marine and underwater service
               support across major and remote ports throughout India.

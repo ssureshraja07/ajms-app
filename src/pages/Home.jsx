@@ -21,21 +21,21 @@ export default function Home() {
   const services = [
   {
     number: "01",
-    title: "Underwater Inspection",
+    title: "Calibration",
     text: "Professional underwater inspection and marine assessment services for vessels and marine structures.",
     image: service1,
   },
 
   {
     number: "02",
-    title: "Hull & Propeller",
+    title: "Ship Diving",
     text: "Inspection, cleaning and maintenance support to keep vessel operations running efficiently.",
     image: service2,
   },
 
   {
     number: "03",
-    title: "Underwater Repairs",
+    title: "Ship Cleaning",
     text: "Responsive underwater repair and maintenance solutions for demanding marine environments.",
     image: service3,
   },

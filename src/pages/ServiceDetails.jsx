@@ -1,26 +1,99 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Phone, ArrowRight } from "lucide-react";
 import { services } from "../data";
 import Reveal from "../components/Reveal";
 
+/* Reusable checklist card list */
+function CheckList({ items = [] }) {
+  return (
+    <div className="space-y-4">
+      {items.map((detail) => (
+        <div
+          key={detail}
+          className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+        >
+          <CheckCircle2 className="mt-1 shrink-0 text-cyan-600" size={21} />
+          <p className="leading-7 text-slate-600">{detail}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* Image + text section (General Diving Services) */
+function SectionBlock({ section }) {
+  return (
+    <div
+      className={`grid items-center gap-8 lg:gap-12 ${
+        section.image ? "lg:grid-cols-2" : ""
+      }`}
+    >
+      <div className={section.reverse ? "lg:order-2" : ""}>
+        <h3 className="text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+          {section.heading}
+        </h3>
+
+        {section.note && (
+          <p className="mt-1 text-sm font-bold text-cyan-600">{section.note}</p>
+        )}
+
+        {(section.paragraphs || []).map((text) => (
+          <p key={text} className="mt-4 leading-8 text-slate-600">
+            {text}
+          </p>
+        ))}
+
+        {section.items?.length > 0 && (
+          <div className="mt-6">
+            <CheckList items={section.items} />
+          </div>
+        )}
+      </div>
+
+      {section.image && (
+        <div className={section.reverse ? "lg:order-1" : ""}>
+          <img
+            src={section.image}
+            alt={section.heading}
+            className="h-64 w-full rounded-3xl object-cover shadow-lg sm:h-80 lg:h-[420px]"
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ServiceDetails() {
   const { serviceId } = useParams();
   const service = services.find((item) => item.id === serviceId);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Service maarina first tab ku reset
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [serviceId]);
 
   if (!service) {
     return (
       <div className="container-shell py-32 text-center">
         <h1 className="text-4xl font-black">Service not found</h1>
 
-        <Link
-          className="mt-6 inline-block text-cyan-700"
-          to="/services"
-        >
+        <Link className="mt-6 inline-block text-cyan-700" to="/services">
           Back to services
         </Link>
       </div>
     );
   }
+
+  // Main service + sub services = tabs (Ship Diving la 4 tabs)
+  const tabs = service.subServices?.length
+    ? [service, ...service.subServices]
+    : [service];
+
+  const hasTabs = tabs.length > 1;
+  const active = tabs[activeIndex] || tabs[0];
 
   return (
     <>
@@ -66,102 +139,107 @@ export default function ServiceDetails() {
       {/* Details */}
       <section className="bg-slate-50">
         <div className="container-shell grid gap-14 py-20 lg:grid-cols-[1fr_360px] lg:py-24">
-
           {/* Main content */}
           <div>
-            <div className="mb-3 text-xs font-black uppercase tracking-[.28em] text-cyan-600">
-              Service Overview
-            </div>
-
-            <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
-              Professional {service.title.toLowerCase()} support
-            </h2>
-
-            <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-              AJ MARINE SERVICES provides focused marine service support with
-              attention to vessel condition, operational requirements and the
-              agreed service scope.
-            </p>
-
-            {/* Existing service details */}
-            <div className="mt-8 space-y-4">
-              {(service.details || []).map((detail) => (
-                <div
-                  key={detail}
-                  className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-                >
-                  <CheckCircle2
-                    className="mt-1 shrink-0 text-cyan-600"
-                    size={21}
-                  />
-
-                  <p className="leading-7 text-slate-600">
-                    {detail}
-                  </p>
+            {/* Tabs - Ship Diving + 3 sub services */}
+            {hasTabs && (
+              <div className="mb-12">
+                <div className="mb-3 text-xs font-black uppercase tracking-[.28em] text-cyan-600">
+                  Our Underwater Services
                 </div>
-              ))}
-            </div>
 
-            {/* Water Surveys - Additional Sections */}
-            {service.id === "water-surveys" && (
-              <div className="mt-12 space-y-12">
-
-                {/* Additional Underwater Services */}
-                <div>
-                  <h3 className="text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
-                    Additional Underwater Services
-                  </h3>
-
-                  <div className="mt-6 space-y-4">
-                    {(service.additionalUnderwaterServices || []).map(
-                      (detail) => (
-                        <div
-                          key={detail}
-                          className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+                <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
+                  {tabs.map((tab, index) => {
+                    const isActive = index === activeIndex;
+                    return (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        onClick={() => setActiveIndex(index)}
+                        className={`flex flex-col items-start gap-2 rounded-2xl border p-4 text-left transition ${
+                          isActive
+                            ? "border-cyan-500 bg-slate-950 text-white shadow-lg"
+                            : "border-slate-200 bg-white text-slate-700 hover:border-cyan-400 hover:shadow-md"
+                        }`}
+                      >
+                        <span className="text-2xl">{tab.icon}</span>
+                        <span className="text-sm font-black leading-tight">
+                          {tab.title}
+                        </span>
+                        <span
+                          className={`text-[10px] font-bold uppercase tracking-[.15em] ${
+                            isActive ? "text-cyan-300" : "text-slate-400"
+                          }`}
                         >
-                          <CheckCircle2
-                            className="mt-1 shrink-0 text-cyan-600"
-                            size={21}
-                          />
-
-                          <p className="leading-7 text-slate-600">
-                            {detail}
-                          </p>
-                        </div>
-                      )
-                    )}
-                  </div>
+                          {tab.tag}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
-
-                {/* Class Approved In-Water Surveys */}
-                <div>
-                  <h3 className="text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
-                    Class Approved In-Water Surveys
-                  </h3>
-
-                  <div className="mt-6 space-y-4">
-                    {(service.classApprovedInWaterSurveys || []).map(
-                      (detail) => (
-                        <div
-                          key={detail}
-                          className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-                        >
-                          <CheckCircle2
-                            className="mt-1 shrink-0 text-cyan-600"
-                            size={21}
-                          />
-
-                          <p className="leading-7 text-slate-600">
-                            {detail}
-                          </p>
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-
               </div>
             )}
+
+            {/* Active service content */}
+            <div key={active.id}>
+              {hasTabs && active.image && (
+                <img
+                  src={active.image}
+                  alt={active.title}
+                  className="mb-8 h-64 w-full rounded-3xl object-cover shadow-lg sm:h-80"
+                />
+              )}
+
+              <div className="mb-3 text-xs font-black uppercase tracking-[.28em] text-cyan-600">
+                Service Overview
+              </div>
+
+              <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+                Professional {active.title.toLowerCase()} support
+              </h2>
+
+              <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
+                {active.description}
+              </p>
+
+              {/* Details list */}
+              {active.details?.length > 0 && (
+                <div className="mt-8">
+                  <CheckList items={active.details} />
+                </div>
+              )}
+
+              {/* Water Surveys - Additional Sections */}
+              {active.id === "water-surveys" && (
+                <div className="mt-12 space-y-12">
+                  <div>
+                    <h3 className="mb-6 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+                      Additional Underwater Services
+                    </h3>
+                    <CheckList items={active.additionalUnderwaterServices} />
+                  </div>
+
+                  <div>
+                    <h3 className="mb-6 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+                      Class Approved In-Water Surveys
+                    </h3>
+                    <CheckList items={active.classApprovedInWaterSurveys} />
+                  </div>
+                </div>
+              )}
+
+              {/* Sections with images (General Diving Services) */}
+              {active.sections?.length > 0 && (
+                <div className="mt-14 space-y-16">
+                  {active.sections.map((section) => (
+                    <SectionBlock key={section.heading} section={section} />
+                  ))}
+                </div>
+              )}
+
+              
+            
+            </div>
           </div>
 
           {/* Contact Sidebar */}
@@ -188,7 +266,6 @@ export default function ServiceDetails() {
               <ArrowRight size={17} />
             </Link>
           </aside>
-
         </div>
       </section>
     </>
