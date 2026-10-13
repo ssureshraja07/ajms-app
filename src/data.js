@@ -160,39 +160,7 @@ export const services = [
   ],
 },
 
-  {
-    id: "allied-services",
-
-    title: "FFA/LSA Services",
-
-    description:
-      "Specialized fire fighting and life saving appliance inspection, testing, and allied marine services.",
-
-    image: service6,
-
-    icon: "🛡️",
-
-    tag: "Safety Equipment",
-
-    details: [
-      "Fire Fighting Appliances (FFA) and Life Saving Appliances (LSA) are essential components of vessel safety systems and require regular inspection, maintenance, testing, and service attention.",
-
-      "AJ MARINE SERVICES provides allied marine safety services supporting vessel owners and operators with FFA and LSA related requirements.",
-
-      "Our service scope can include inspection, testing, maintenance support, servicing coordination, and documentation according to the agreed vessel requirements.",
-
-      "Fire Fighting Appliance support can cover applicable firefighting equipment and systems that require periodic inspection and service attention.",
-
-      "Life Saving Appliance support can cover applicable life-saving equipment and associated maintenance requirements.",
-
-      "Our team works with vessel representatives to understand equipment condition, service schedules, operational requirements, and the required scope of work.",
-
-      "Proper service records and documentation can be maintained as part of the agreed scope to support vessel safety management and operational readiness.",
-
-      "We focus on dependable service coordination and professional execution to help vessels maintain their required safety equipment in operational condition.",
-    ],
-  },
-
+ 
   {
   id: "general-diving-services",
 
@@ -245,24 +213,24 @@ export const services = [
       image: commercial,
     },
 
-    {
-      heading: "Welding and Fabricating Capabilities",
-      paragraphs: [
-        "Our welders/divers are fully qualified to the highest international standards.",
-        "Avail our welding services in both topside and subsea applications.",
-      ],
-      items: [
-        "Cofferdam manufacturing and installation",
-        "Structural and coded 6F/6G welding capabilities",
-        "Sea chest and rope guard building",
-        "Doubler plate affixing and leak management",
-        "Permanent and temporary repair solutions",
-        "Pipework and high-pressure vessels",
-        "Bespoke fabrication projects",
-      ],
-      image: welding,
-      reverse: true,
-    },
+    // {
+    //   heading: "Welding and Fabricating Capabilities",
+    //   paragraphs: [
+    //     "Our welders/divers are fully qualified to the highest international standards.",
+    //     "Avail our welding services in both topside and subsea applications.",
+    //   ],
+    //   items: [
+    //     "Cofferdam manufacturing and installation",
+    //     "Structural and coded 6F/6G welding capabilities",
+    //     "Sea chest and rope guard building",
+    //     "Doubler plate affixing and leak management",
+    //     "Permanent and temporary repair solutions",
+    //     "Pipework and high-pressure vessels",
+    //     "Bespoke fabrication projects",
+    //   ],
+    //   image: welding,
+    //   reverse: true,
+    // },
   ],
 
   // Bottom gallery - dummy images
@@ -275,6 +243,40 @@ export const services = [
     "https://placehold.co/900x700/0f172a/22d3ee?text=Gallery+6",
   ],
 },
+
+
+ {
+    id: "allied-services",
+
+    title: "FFA/LSA Services",
+
+    description:
+      "Specialized fire fighting and life saving appliance inspection, testing, and allied marine services.",
+
+    image: service6,
+
+    icon: "🛡️",
+
+    tag: "Safety Equipment",
+
+    details: [
+      "Fire Fighting Appliances (FFA) and Life Saving Appliances (LSA) are essential components of vessel safety systems and require regular inspection, maintenance, testing, and service attention.",
+
+      "AJ MARINE SERVICES provides allied marine safety services supporting vessel owners and operators with FFA and LSA related requirements.",
+
+      "Our service scope can include inspection, testing, maintenance support, servicing coordination, and documentation according to the agreed vessel requirements.",
+
+      "Fire Fighting Appliance support can cover applicable firefighting equipment and systems that require periodic inspection and service attention.",
+
+      "Life Saving Appliance support can cover applicable life-saving equipment and associated maintenance requirements.",
+
+      "Our team works with vessel representatives to understand equipment condition, service schedules, operational requirements, and the required scope of work.",
+
+      "Proper service records and documentation can be maintained as part of the agreed scope to support vessel safety management and operational readiness.",
+
+      "We focus on dependable service coordination and professional execution to help vessels maintain their required safety equipment in operational condition.",
+    ],
+  },
 
   
 ];

@@ -15,6 +15,7 @@ import {
   Wrench,
 } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
+import ClassificationApproval from "../components/ClassificationApproval";
 import Reveal from "../components/Reveal";
 import aboutbg from "../images/aboutbg.png";
 import about2 from "../images/about2.png";
@@ -369,6 +370,10 @@ export default function About() {
               </Reveal>
             ))}
           </div>
+
+          
+
+      <ClassificationApproval />
 
           <Reveal className="mt-12 text-center">
             <div className="text-sm font-black uppercase tracking-[.3em] text-slate-900">

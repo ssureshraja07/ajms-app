@@ -29,7 +29,7 @@ export default function Home() {
 
   {
     number: "02",
-    title: "Ship Diving",
+    title: "Commercial Diving",
     text: "Inspection, cleaning and maintenance support to keep vessel operations running efficiently.",
     image: service2,
   },
@@ -43,7 +43,7 @@ export default function Home() {
 
   {
     number: "04",
-    title: "Marine Support",
+    title: "Marine Services",
     text: "Reliable marine support for vessels, ports, terminals and maritime operations.",
     image: support,
   },
