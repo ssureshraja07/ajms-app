@@ -40,8 +40,7 @@ export default function Footer() {
           </div>
 
           <p className="max-w-md text-sm leading-7 text-slate-400">
-            Professional marine diving, underwater inspection, hull cleaning,
-            propeller polishing and marine maintenance services.
+         Professional Commercial Diving | Underwater Inspection | Marine Infrastructure Support | Calibration Services  | LSA FFA Service
           </p>
         </div>
 

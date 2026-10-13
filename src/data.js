@@ -61,7 +61,7 @@ export const services = [
   {
   id: "ship-diving",
 
-  title: "Ship Diving Services",
+  title: "In-Water surveys",
 
   description:
     "Professional underwater diving and ship maintenance services carried out by qualified diving professionals.",
