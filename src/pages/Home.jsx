@@ -34,15 +34,10 @@ export default function Home() {
     image: service2,
   },
 
-  {
-    number: "03",
-    title: "Ship Cleaning",
-    text: "Responsive underwater repair and maintenance solutions for demanding marine environments.",
-    image: service3,
-  },
+ 
 
   {
-    number: "04",
+    number: "03",
     title: "Marine Services",
     text: "Reliable marine support for vessels, ports, terminals and maritime operations.",
     image: support,
@@ -263,13 +258,12 @@ export default function Home() {
 {/* =====================================================
     SERVICES
 ===================================================== */}
-
 <section className="bg-[#f4f8fa] py-24 lg:py-32">
 
   <div className="mx-auto max-w-7xl px-5 lg:px-8">
 
     {/* Heading */}
-    <div className="max-w-2xl">
+    <div className="mx-auto max-w-2xl text-center">
 
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-600">
         What We Do
@@ -283,80 +277,79 @@ export default function Home() {
 
     </div>
 
-{/* Service Cards */}
-<div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+    {/* Service Cards */}
+    <div className="mt-14 flex flex-wrap justify-center gap-5">
 
-  {services.map((service, index) => (
+      {services.map((service, index) => (
 
-    <motion.div
-      key={service.number}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-      }}
-    >
+        <motion.div
+          key={service.number}
+          className="w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.1,
+          }}
+        >
 
-      <Link
-        to="/services"
-        className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:border-cyan-200 hover:shadow-xl"
-      >
+          <Link
+            to="/services"
+            className="group block h-full overflow-hidden rounded-2xl border border-slate-200 bg-white text-left transition duration-300 hover:-translate-y-2 hover:border-cyan-200 hover:shadow-xl"
+          >
 
-        {/* Image */}
-        <div className="relative h-52 overflow-hidden">
+            {/* Image */}
+            <div className="relative h-52 overflow-hidden">
 
-          <img
-            src={service.image}
-            alt={service.title}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-          />
+              <img
+                src={service.image}
+                alt={service.title}
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+              />
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071b2d]/70 via-transparent to-transparent" />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071b2d]/70 via-transparent to-transparent" />
 
-          {/* Number */}
-          <span className="absolute bottom-4 left-5 text-sm font-bold text-white">
-            {service.number}
-          </span>
+              {/* Number */}
+              <span className="absolute bottom-4 left-5 text-sm font-bold text-white">
+                {service.number}
+              </span>
 
-        </div>
+            </div>
 
+            {/* Content */}
+            <div className="p-7">
 
-        {/* Content */}
-        <div className="p-7">
+              <div className="flex items-start justify-end">
 
-          <div className="flex items-start justify-end">
+                <ArrowRight
+                  size={20}
+                  className="text-slate-300 transition duration-300 group-hover:translate-x-1 group-hover:text-cyan-600"
+                />
 
-            <ArrowRight
-              size={20}
-              className="text-slate-300 transition duration-300 group-hover:translate-x-1 group-hover:text-cyan-600"
-            />
+              </div>
 
-          </div>
+              <h3 className="mt-5 text-xl font-bold text-[#071b2d]">
+                {service.title}
+              </h3>
 
-          <h3 className="mt-5 text-xl font-bold text-[#071b2d]">
-            {service.title}
-          </h3>
+              <p className="mt-4 text-sm leading-7 text-slate-500">
+                {service.text}
+              </p>
 
-          <p className="mt-4 text-sm leading-7 text-slate-500">
-            {service.text}
-          </p>
+            </div>
 
-        </div>
+          </Link>
 
-      </Link>
+        </motion.div>
 
-    </motion.div>
+      ))}
 
-  ))}
-
-</div>
-
+    </div>
 
     {/* Button */}
-    <div className="mt-10">
+    <div className="mt-10 flex justify-center">
 
       <Link
         to="/services"

@@ -71,9 +71,9 @@ export default function Footer() {
         <div className="container-shell flex flex-col justify-between gap-2 py-5 text-xs text-slate-500 md:flex-row">
           <span className="font-['Rajdhani'] font-bold uppercase tracking-[0.2em] text-cyan-300">© {new Date().getFullYear()} AJMS MARINE. All rights reserved.</span>
           <span className="font-['Rajdhani'] font-bold uppercase tracking-[0.2em] text-cyan-300">
-  ★ Established 2020
+  ★ Established In 2020
 </span>
-          <span className="font-['Rajdhani'] font-bold uppercase tracking-[0.2em] text-cyan-300">Marine Diving • Inspection • Maintenance</span>
+          <span className="font-['Rajdhani'] font-bold uppercase tracking-[0.2em] text-cyan-300">Calibration• Commercial Diving• Marine Services</span>
         </div>
       </div>
     </footer>

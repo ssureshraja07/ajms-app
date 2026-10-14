@@ -17,13 +17,13 @@ import rina from "../images/class-societies/rina.png";
 /* IMPORTANT: keep only the societies AJ Marine Services is actually
    approved by. Delete the lines of any society that does not apply. */
 const societies = [
+  { short: "IRClass", name: "Indian Register of Shipping", logo: irclass },
   { short: "ABS", name: "American Bureau of Shipping", logo: abs },
   { short: "BV", name: "Bureau Veritas", logo: bureauVeritas },
   { short: "CCS", name: "China Classification Society", logo: ccs },
   { short: "PRS", name: "Polish Register of Shipping", logo: prs },
   { short: "CRS", name: "Croatian Register of Shipping", logo: crs },
   { short: "DNV", name: "DNV", logo: dnv },
-  { short: "IRClass", name: "Indian Register of Shipping", logo: irclass },
   { short: "TL", name: "Türk Loydu", logo: turkLoydu },
   { short: "KR", name: "Korean Register", logo: kr },
   { short: "LR", name: "Lloyd's Register", logo: lr },
@@ -143,10 +143,7 @@ export default function ClassificationApproval() {
             ))}
           </div>
 
-          <p className="mt-8 text-xs text-slate-500">
-            Any classification society approval is specific to its documented
-            scope and validity.
-          </p>
+         
         </Reveal>
       </div>
     </section>

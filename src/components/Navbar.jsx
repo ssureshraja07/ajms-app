@@ -395,15 +395,7 @@ export default function Navbar() {
             </Link>
 
 
-            {/* BLOG */}
-
-            <Link
-              onClick={closeMenu}
-              to="/blog"
-              className="rounded-lg px-4 py-3 text-white/80 transition hover:bg-white/5 hover:text-cyan-300"
-            >
-              Blog
-            </Link>
+           
 
 
             {/* CONTACT */}

@@ -53,8 +53,6 @@ const expertise = [
     paragraphs: [
       "Quality is an important part of our business philosophy. AJ Marine Services is an ISO 9001:2015 IRQS Certified Service Company, reflecting our commitment to quality management, customer satisfaction and continual improvement.",
       "We seek to deliver services in accordance with applicable requirements, customer specifications and established operational procedures. Our approach emphasizes professional coordination, appropriate documentation, safety awareness and consistent service delivery.",
-      "Where a project requires classification society involvement, surveyor attendance or specific technical acceptance, the applicable requirements and responsibilities are determined in coordination with the relevant customer and authorized organization.",
-      "Any classification society approval is specific to its documented scope and validity. Details of individual approvals will be communicated in accordance with the applicable approval documentation.",
     ],
   },
 ];
@@ -140,61 +138,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Company Profile (existing) */}
-      <section className="container-shell grid gap-14 py-24 lg:grid-cols-2 lg:items-center">
-        <Reveal direction="left" className="overflow-hidden rounded-[2rem]">
-          <img
-            src={about2}
-            alt="Professional diver underwater"
-            className="h-[520px] w-full object-cover"
-          />
-        </Reveal>
-        <Reveal direction="right">
-          <SectionHeading
-            eyebrow="Company Profile"
-            title="A focused partner for underwater and marine maintenance needs."
-            description="AJ MARINE SERVICES provides a service portfolio spanning ship diving, hull cleaning, underwater surveys, propeller polishing, calibration, safety equipment support and marine ship maintenance."
-          />
-          <div className="mt-8 grid gap-4">
-            <div className="flex gap-4 rounded-2xl bg-slate-50 p-5">
-              <Compass className="shrink-0 text-cyan-600" />
-              <div>
-                <b>Our Approach</b>
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  Plan the work around the vessel, underwater condition, access
-                  and agreed scope.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 rounded-2xl bg-slate-50 p-5">
-              <ShieldCheck className="shrink-0 text-cyan-600" />
-              <div>
-                <b>Safety Mindset</b>
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  Safety and operational discipline remain central to marine
-                  service execution.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 rounded-2xl bg-slate-50 p-5">
-              <Target className="shrink-0 text-cyan-600" />
-              <div>
-                <b>Service Objective</b>
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  Support vessel readiness, maintenance planning and underwater
-                  asset condition.
-                </p>
-              </div>
-            </div>
-          </div>
-          <Link
-            to="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 font-bold text-white"
-          >
-            Talk to AJ MARINE SERVICES <ArrowRight size={18} />
-          </Link>
-        </Reveal>
-      </section>
+     
 
       {/* Intro - Trusted Partner */}
       <section className="bg-slate-50">
@@ -351,27 +295,6 @@ export default function About() {
       {/* Serving India's Maritime & Port Sector */}
       <section className="bg-slate-50">
         <div className="container-shell py-24">
-          <Reveal className="mx-auto max-w-4xl text-center">
-            <div className="text-xs font-black uppercase tracking-[.28em] text-cyan-600">
-              Our Reach
-            </div>
-
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Serving India's Maritime &amp; Port Sector
-            </h2>
-          </Reveal>
-
-          <div className="mx-auto mt-10 max-w-4xl space-y-6">
-            {servingParagraphs.map((text, index) => (
-              <Reveal key={index} delay={index * 100}>
-                <p className="text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
-                  {text}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-
-          
 
       <ClassificationApproval />
 
