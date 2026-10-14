@@ -10,53 +10,78 @@ import vision from "./images/our-vision.png";
 import full from "./images/full.png";
 import commercial from "./images/commercial.png";
 import welding from "./images/welding.png";
+import cali1 from "./images/cali1.png";
+import cali2 from "./images/cali2.png";
+import cali3 from "./images/cali3.png";
 
 
 export const services = [
-  {
-    id: "calibration",
+ {
+  id: "calibration",
+  title: "Calibration Services",
+  description:
+    "Professional inspection and calibration services for marine safety, monitoring, and measurement equipment.",
+  image: service1,
+  icon: "⚙️",
+  tag: "Safety & Compliance",
 
-    title: "Calibration Services",
+  details: [
+    "Inspection and calibration of pressure gauges to help ensure accurate and reliable pressure readings during marine and vessel operations.",
+    "Inspection and calibration of pressure and temperature transmitters, supporting dependable monitoring and measurement across vessel systems.",
+    "Calibration of temperature sensors to maintain accurate temperature measurement and reliable monitoring performance.",
+    "Inspection and calibration of pressure and temperature calibrators to support accurate testing and verification of marine measurement equipment.",
+    "Calibration of portable and fixed gas detectors to help maintain reliable gas monitoring and safety functions onboard vessels.",
+    "Inspection and functional testing of fixed gas detection systems to verify proper operation, detection performance, and system readiness.",
+    "Calibration of UTI tapes to support accurate measurement and monitoring requirements during vessel and tank operations.",
+    "Inspection and calibration of oily water separator systems, including 15 ppm bilge alarm monitor systems, to support reliable operation and monitoring.",
+    "Calibration of Oil Discharge Monitoring Equipment (ODME) systems to help maintain accurate monitoring and dependable operational performance.",
+    "Inspection and calibration of vapour monitoring systems to support reliable vapour detection, measurement, and safe vessel operations.",
+    "Inspection and function testing of fire alarm systems to verify proper operation and readiness of critical onboard safety equipment.",
+    "Inspection and function testing of smoke detection systems to help ensure reliable detection and early warning capability onboard vessels.",
+    "AJ MARINE SERVICES supports vessel owners, operators, and marine teams with inspection, calibration, testing, and service coordination based on equipment type, operating requirements, and agreed service scope.",
+    "All activities are planned with attention to accuracy, proper equipment handling, operational requirements, and reliable service documentation to support vessel maintenance and compliance needs."
+  ],
 
-    description:
-      "Professional inspection and calibration services for marine safety, monitoring, and measurement equipment.",
+  equipmentGroups: [
+    {
+      id: "temperature",
+      title: "Temperature Equipments",
+      icon: "🌡️",
+      image: cali1,
+      items: [
+        "Temperature Calibrator",
+        "Temperature Gauge",
+        "Temperature Thermometer",
+        "Temperature Transmitters"
+      ]
+    },
+    {
+      id: "pressure",
+      title: "Pressure Equipments",
+      icon: "ϟ",
+      image: cali2,
+      items: [
+        "Pressure Calibrator",
+        "Pressure Gauge",
+        "Compound Gauge",
+        "Pressure Transmitters"
+      ]
+    },
+    {
+      id: "gas",
+      title: "Gas Detectors",
+      icon: "◉",
+      image: cali3,
+      items: [
+        "Single Gas Detectors",
+        "Multi-Gas Detectors",
+        "RKI, Honeywell, GMI",
+        "Crowcon, Scott Safety, MSA"
+      ]
+    }
+  ]
+},
 
-    image: service1,
-
-    icon: "⚙️",
-
-    tag: "Safety & Compliance",
-
-    details: [
-  "Inspection and calibration of pressure gauges to help ensure accurate and reliable pressure readings during marine and vessel operations.",
-
-  "Inspection and calibration of pressure and temperature transmitters, supporting dependable monitoring and measurement across vessel systems.",
-
-  "Calibration of temperature sensors to maintain accurate temperature measurement and reliable monitoring performance.",
-
-  "Inspection and calibration of pressure and temperature calibrators to support accurate testing and verification of marine measurement equipment.",
-
-  "Calibration of portable and fixed gas detectors to help maintain reliable gas monitoring and safety functions onboard vessels.",
-
-  "Inspection and functional testing of fixed gas detection systems to verify proper operation, detection performance, and system readiness.",
-
-  "Calibration of UTI tapes to support accurate measurement and monitoring requirements during vessel and tank operations.",
-
-  "Inspection and calibration of oily water separator systems, including 15 ppm bilge alarm monitor systems, to support reliable operation and monitoring.",
-
-  "Calibration of Oil Discharge Monitoring Equipment (ODME) systems to help maintain accurate monitoring and dependable operational performance.",
-
-  "Inspection and calibration of vapour monitoring systems to support reliable vapour detection, measurement, and safe vessel operations.",
-
-  "Inspection and function testing of fire alarm systems to verify proper operation and readiness of critical onboard safety equipment.",
-
-  "Inspection and function testing of smoke detection systems to help ensure reliable detection and early warning capability onboard vessels.",
-
-  "AJ MARINE SERVICES supports vessel owners, operators, and marine teams with inspection, calibration, testing, and service coordination based on equipment type, operating requirements, and agreed service scope.",
-
-  "All activities are planned with attention to accuracy, proper equipment handling, operational requirements, and reliable service documentation to support vessel maintenance and compliance needs.",
-],
-  },
 
   {
   id: "ship-diving",

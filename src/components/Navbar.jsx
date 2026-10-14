@@ -27,6 +27,13 @@ export default function Navbar() {
 
      {/* Logo */}
 <Link to="/" onClick={closeMenu} className="flex items-center gap-3">
+
+  {/* AJMS Logo */}
+  <img
+    src={ajmsLogo}
+    alt="AJMS Marine Services"
+    className="h-12 w-12 object-contain"
+  />
   {/* Company Name */}
   <div className="flex items-center gap-3">
     {/* AJ - Left */}
@@ -48,12 +55,6 @@ export default function Navbar() {
     </div>
   </div>
 
-  {/* AJMS Logo */}
-  <img
-    src={ajmsLogo}
-    alt="AJMS Marine Services"
-    className="h-12 w-12 object-contain"
-  />
 </Link>
 
 
@@ -395,8 +396,7 @@ export default function Navbar() {
             </Link>
 
 
-           
-
+      
 
             {/* CONTACT */}
 

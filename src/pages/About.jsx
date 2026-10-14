@@ -107,15 +107,18 @@ const servingParagraphs = [
 export default function About() {
   return (
     <>
-      {/* Hero */}
-      <section
-        className="relative overflow-hidden py-24 text-white"
-        style={{
-          backgroundImage: `url(${aboutbg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+     
+{/* Hero */}
+<section
+  className="relative overflow-hidden py-50 text-white bg-no-repeat bg-center bg-contain lg:bg-cover"
+  style={{
+    backgroundImage: `url(${aboutbg})`,
+    backgroundSize: "100% auto",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-slate-950/70"></div>
 
