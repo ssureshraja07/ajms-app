@@ -12,6 +12,12 @@ export default function Footer() {
           {/* Logo + Company Name */}
           <div className="mb-5 flex items-center gap-3">
             <div className="flex items-center gap-3">
+
+              <img
+              src={ajmsLogo}
+              alt="AJMS Marine Services"
+              className="h-16 w-16 object-contain"
+            />
               {/* AJ - Left */}
               <h1 className="bg-gradient-to-b from-white to-cyan-300 bg-clip-text font-['Orbitron'] text-4xl font-black tracking-[0.12em] text-transparent">
                 AJ
@@ -32,11 +38,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <img
-              src={ajmsLogo}
-              alt="AJMS Marine Services"
-              className="h-16 w-16 object-contain"
-            />
+            
           </div>
 
           <p className="max-w-md text-sm leading-7 text-slate-400">

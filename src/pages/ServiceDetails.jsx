@@ -1,6 +1,6 @@
-
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Eye, X } from "lucide-react";
 
 import {
   ArrowLeft,
@@ -11,10 +11,81 @@ import {
   Zap,
   Fingerprint,
   ShieldCheck,
+  Search,
+  Sparkles,
+  Wrench,
+  Building2,
+  Cable,
+  Gauge,
+  LifeBuoy,
+  Anchor,
+  HardHat,
+  Droplets,
+  Fish,
+  Video,
+  Users,
+  Siren,
 } from "lucide-react";
 
 import { services } from "../data";
 import Reveal from "../components/Reveal";
+
+
+/* Certificate popup — same behavior as About.jsx */
+function CertificateModal({ src, title, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+    >
+      <div
+        className="relative max-h-[92vh] w-full max-w-3xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+          <h3 className="text-base font-black text-slate-900 sm:text-lg">
+            {title}
+          </h3>
+
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close certificate"
+            className="grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        <div className="max-h-[calc(92vh-72px)] overflow-auto bg-slate-50 p-4 sm:p-6">
+          <img
+            src={src}
+            alt={title}
+            className="mx-auto h-auto w-full rounded-xl shadow-md"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 /* Reusable checklist */
 function CheckList({ items = [] }) {
@@ -162,7 +233,7 @@ function EquipmentGroups({ groups = [], fallbackImage }) {
           const reverse = index % 2 !== 0;
 
           return (
-            <Reveal key={group.id}>
+            <Reveal key={`${group.id}-${index}`}>
               <div
                 className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-14 ${
                   reverse
@@ -250,6 +321,108 @@ function EquipmentGroups({ groups = [], fallbackImage }) {
   );
 }
 
+/* Diving service categories - numbered card grid */
+const groupIcons = {
+  inspection: Search,
+  cleaning: Sparkles,
+  repair: Wrench,
+  infrastructure: Building2,
+  pipeline: Cable,
+  testing: Gauge,
+  recovery: LifeBuoy,
+  offshore: Anchor,
+  construction: HardHat,
+  water: Droplets,
+  environment: Fish,
+  cctv: Video,
+  commercial: Users,
+  emergency: Siren,
+};
+
+function ServiceGroups({ groups = [] }) {
+  if (!groups?.length) return null;
+
+  return (
+    <section className="mt-20">
+      <Reveal>
+        <div className="mb-10">
+          <span className="text-xs font-black uppercase tracking-[0.25em] text-cyan-600">
+            What We Offer
+          </span>
+
+          <h3 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+            Our Diving Services
+          </h3>
+
+          <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+            {groups.length} specialised service categories covering
+            inspection, repair, recovery and offshore support.
+          </p>
+        </div>
+
+        {/* Quick jump chips */}
+        <div className="mb-12 flex flex-wrap gap-2">
+          {groups.map((group, index) => (
+            <a
+              key={group.id}
+              href={`#${group.id}`}
+              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-600 transition hover:border-cyan-400 hover:text-cyan-700"
+            >
+              {String(index + 1).padStart(2, "0")} · {group.title}
+            </a>
+          ))}
+        </div>
+      </Reveal>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        {groups.map((group, index) => {
+          const Icon = groupIcons[group.icon] || ShieldCheck;
+
+          return (
+            <Reveal key={group.id}>
+              <article
+                id={group.id}
+                className="group relative h-full scroll-mt-32 overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl"
+              >
+                {/* Big faded number */}
+                <span className="pointer-events-none absolute -right-2 -top-4 text-8xl font-black text-slate-100 transition group-hover:text-cyan-50">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <div className="relative">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-950 text-cyan-300 shadow-lg transition group-hover:bg-cyan-500 group-hover:text-slate-950">
+                    <Icon size={26} strokeWidth={2} />
+                  </div>
+
+                  <h4 className="mt-5 pr-12 text-xl font-black leading-tight tracking-tight text-slate-950 sm:text-2xl">
+                    {group.title}
+                  </h4>
+
+                  <div className="mt-4 h-1 w-12 rounded-full bg-cyan-500" />
+
+                  <ul className="mt-5 space-y-3">
+                    {group.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <CheckCircle2
+                          size={18}
+                          className="mt-1 shrink-0 text-cyan-600"
+                        />
+                        <span className="text-sm leading-6 text-slate-600 sm:text-base">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            </Reveal>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 export default function ServiceDetails() {
   const { serviceId } = useParams();
 
@@ -258,6 +431,7 @@ export default function ServiceDetails() {
   );
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeCert, setActiveCert] = useState(null);
 
   /* Reset active tab when service changes */
   useEffect(() => {
@@ -403,7 +577,32 @@ export default function ServiceDetails() {
               )}
 
               <div className="mb-3 text-xs font-black uppercase tracking-[.28em] text-cyan-600">
-                Service Overview
+
+
+{/* Certificate badge */}
+{active.badge && active.certificate && (
+  <div className="mb-5">
+    <button
+      type="button"
+      onClick={() =>
+        setActiveCert({
+          src: active.certificate,
+          title: active.badge,
+        })
+      }
+      className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-50 px-4 py-2 text-xs font-black uppercase tracking-[.15em] text-cyan-700 transition hover:border-cyan-500 hover:bg-cyan-100"
+    >
+      {active.badge}
+      <Eye size={14} />
+    </button>
+  </div>
+)}
+
+<div className="mb-3 text-xs font-black uppercase tracking-[.28em] text-cyan-600">
+  Service Overview
+</div>
+
+               
               </div>
 
               <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
@@ -465,6 +664,11 @@ export default function ServiceDetails() {
                   ))}
                 </div>
               )}
+
+              {/* Diving service categories */}
+              {active.serviceGroups?.length > 0 && (
+                <ServiceGroups groups={active.serviceGroups} />
+              )}
             </div>
           </div>
 
@@ -494,6 +698,14 @@ export default function ServiceDetails() {
           </aside>
         </div>
       </section>
+
+      {activeCert && (
+  <CertificateModal
+    src={activeCert.src}
+    title={activeCert.title}
+    onClose={() => setActiveCert(null)}
+  />
+)}
     </>
   );
 }

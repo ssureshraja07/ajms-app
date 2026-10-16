@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import {
   ArrowRight,
   Award,
@@ -13,12 +15,14 @@ import {
   Users,
   Waves,
   Wrench,
+  X,
 } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import ClassificationApproval from "../components/ClassificationApproval";
 import Reveal from "../components/Reveal";
 import aboutbg from "../images/aboutbg.png";
 import about2 from "../images/about2.png";
+import isoCertificate from "../images/iso-certificate.png"; // un certificate file name
 
 /* ---------- Content data ---------- */
 
@@ -50,12 +54,67 @@ const expertise = [
     title: "Quality Management & Industry Compliance",
     icon: BadgeCheck,
     badge: "ISO 9001:2015 IRQS Certified",
+    certificate: isoCertificate,
     paragraphs: [
       "Quality is an important part of our business philosophy. AJ Marine Services is an ISO 9001:2015 IRQS Certified Service Company, reflecting our commitment to quality management, customer satisfaction and continual improvement.",
       "We seek to deliver services in accordance with applicable requirements, customer specifications and established operational procedures. Our approach emphasizes professional coordination, appropriate documentation, safety awareness and consistent service delivery.",
     ],
   },
 ];
+
+/* ---------- Certificate popup ---------- */
+
+function CertificateModal({ src, title, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && onClose();
+
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+    >
+      <div
+        className="relative max-h-[92vh] w-full max-w-3xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+          <h3 className="text-base font-black text-slate-900 sm:text-lg">
+            {title}
+          </h3>
+
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close certificate"
+            className="grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        <div className="max-h-[calc(92vh-72px)] overflow-auto bg-slate-50 p-4 sm:p-6">
+          <img
+            src={src}
+            alt={title}
+            className="mx-auto h-auto w-full rounded-xl shadow-md"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const mission =
   "To provide reliable, quality-focused marine services that support safe vessel operations, effective underwater maintenance and the continued performance of marine infrastructure, while building long-term relationships with our customers through professionalism, responsiveness and service commitment.";
@@ -105,20 +164,20 @@ const servingParagraphs = [
 /* ---------- Page ---------- */
 
 export default function About() {
+  const [activeCert, setActiveCert] = useState(null);
+
   return (
     <>
-     
-{/* Hero */}
-<section
-  className="relative overflow-hidden py-50 text-white bg-no-repeat bg-center bg-contain lg:bg-cover"
-  style={{
-    backgroundImage: `url(${aboutbg})`,
-    backgroundSize: "100% auto",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
-
+      {/* Hero */}
+      <section
+        className="relative overflow-hidden py-50 text-white bg-no-repeat bg-center bg-contain lg:bg-cover"
+        style={{
+          backgroundImage: `url(${aboutbg})`,
+          backgroundSize: "100% auto",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-slate-950/70"></div>
 
@@ -140,8 +199,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-     
 
       {/* Intro - Trusted Partner */}
       <section className="bg-slate-50">
@@ -196,11 +253,26 @@ export default function About() {
                       {item.title}
                     </h3>
 
-                    {item.badge && (
-                      <span className="rounded-full border border-cyan-400/40 bg-cyan-50 px-4 py-1.5 text-xs font-black uppercase tracking-[.2em] text-cyan-700">
-                        {item.badge}
-                      </span>
-                    )}
+                    {item.badge &&
+                      (item.certificate ? (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveCert({
+                              src: item.certificate,
+                              title: item.badge,
+                            })
+                          }
+                          className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-50 px-4 py-1.5 text-xs font-black uppercase tracking-[.2em] text-cyan-700 transition hover:border-cyan-500 hover:bg-cyan-100"
+                        >
+                          {item.badge}
+                          <Eye size={14} />
+                        </button>
+                      ) : (
+                        <span className="rounded-full border border-cyan-400/40 bg-cyan-50 px-4 py-1.5 text-xs font-black uppercase tracking-[.2em] text-cyan-700">
+                          {item.badge}
+                        </span>
+                      ))}
                   </div>
 
                   <div className="mt-6 space-y-5">
@@ -216,6 +288,15 @@ export default function About() {
           })}
         </div>
       </section>
+
+      {/* Certificate popup */}
+      {activeCert && (
+        <CertificateModal
+          src={activeCert.src}
+          title={activeCert.title}
+          onClose={() => setActiveCert(null)}
+        />
+      )}
 
       {/* Mission & Vision */}
       <section className="bg-slate-950 text-white">
@@ -298,8 +379,7 @@ export default function About() {
       {/* Serving India's Maritime & Port Sector */}
       <section className="bg-slate-50">
         <div className="container-shell py-24">
-
-      <ClassificationApproval />
+          <ClassificationApproval />
 
           <Reveal className="mt-12 text-center">
             <div className="text-sm font-black uppercase tracking-[.3em] text-slate-900">
