@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -168,6 +169,11 @@ export default function About() {
 
   return (
     <>
+      <SEO
+        title="About AJ Marine Services | Commercial Diving in Tuticorin"
+        description="Learn about AJ Marine Services, based in Tuticorin, India, providing commercial diving, underwater inspection, marine maintenance and calibration-related services."
+        path="/about"
+      />
       {/* Hero */}
       <section
         className="relative overflow-hidden py-50 text-white bg-no-repeat bg-center bg-contain lg:bg-cover"

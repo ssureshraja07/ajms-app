@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Eye, X } from "lucide-react";
+import SEO from "../components/SEO";
 
 import {
   ArrowLeft,
@@ -31,6 +32,29 @@ import { services } from "../data";
 import Reveal from "../components/Reveal";
 
 
+const seoByService = {
+  "ship-diving": {
+    title: "Underwater Diving Services in Tuticorin | AJ Marine Services",
+    description:
+      "AJ Marine Services provides ship diving support, hull cleaning, propeller polishing and underwater inspection services in Tuticorin, India.",
+  },
+  "general-diving-services": {
+    title: "Commercial Diving Services in Tuticorin | AJ Marine Services",
+    description:
+      "Explore commercial diving, underwater surveys, subsea inspection, underwater repair and marine infrastructure support from AJ Marine Services.",
+  },
+  calibration: {
+    title: "Marine Equipment Calibration Services | AJ Marine Services",
+    description:
+      "Marine equipment inspection, testing and calibration support for vessel safety, monitoring and measurement systems from AJ Marine Services.",
+  },
+  "allied-services": {
+    title: "FFA and LSA Marine Safety Services | AJ Marine Services",
+    description:
+      "Explore fire fighting appliance and life saving appliance inspection, testing and allied marine safety service support from AJ Marine Services.",
+  },
+};
+
 /* Certificate popup — same behavior as About.jsx */
 function CertificateModal({ src, title, onClose }) {
   useEffect(() => {
@@ -48,6 +72,8 @@ function CertificateModal({ src, title, onClose }) {
   }, [onClose]);
 
   return (
+
+    
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
       onClick={onClose}
@@ -455,6 +481,11 @@ export default function ServiceDetails() {
     );
   }
 
+  const serviceSeo = seoByService[service.id] || {
+    title: `${service.title} | AJ Marine Services`,
+    description: service.description,
+  };
+
   /* Main service + sub-services tabs */
   const tabs = service.subServices?.length
     ? [service, ...service.subServices]
@@ -478,6 +509,12 @@ export default function ServiceDetails() {
 
   return (
     <>
+      <SEO
+        title={serviceSeo.title}
+        description={serviceSeo.description}
+        path={`/services/${service.id}`}
+      />
+
       {/* Hero section */}
       <section className="relative mt-[80px] min-h-[72vh] w-full overflow-hidden bg-slate-950">
         <img

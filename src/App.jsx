@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import {
   Routes,
@@ -17,8 +16,6 @@ import ServiceDetails from "./pages/ServiceDetails";
 import Contact from "./pages/Contact";
 import PortCoverage from "./pages/PortCoverage";
 
-
-
 function ScrollManager() {
   const location = useLocation();
 
@@ -33,105 +30,41 @@ function ScrollManager() {
   return null;
 }
 
-
 export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
-
       {/* Scroll Position */}
       <ScrollManager />
 
       {/* Global Navbar */}
       <Navbar />
 
-
-      {/* Main Content */}
-      <main>
-
+      {/* Route content: use div to avoid nesting main landmarks */}
+      <div>
         <Routes>
+          {/* Home */}
+          <Route path="/" element={<Home />} />
 
-          {/* =========================
-              HOME
-          ========================= */}
+          {/* About */}
+          <Route path="/about" element={<About />} />
 
-          <Route
-            path="/"
-            element={<Home />}
-          />
+          {/* Services */}
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:serviceId" element={<ServiceDetails />} />
 
+          {/* Port Coverage */}
+          <Route path="/ports" element={<PortCoverage />} />
 
-          {/* =========================
-              ABOUT
-          ========================= */}
+          {/* Contact */}
+          <Route path="/contact" element={<Contact />} />
 
-          <Route
-            path="/about"
-            element={<About />}
-          />
-
-
-          {/* =========================
-              SERVICES
-          ========================= */}
-
-          {/* All Services */}
-          <Route
-            path="/services"
-            element={<Services />}
-          />
-
-          {/* Individual Service */}
-          <Route
-            path="/services/:serviceId"
-            element={<ServiceDetails />}
-          />
-
-
-          {/* =========================
-              PORT COVERAGE
-          ========================= */}
-
-          <Route
-            path="/ports"
-            element={<PortCoverage />}
-          />
-
-
-          {/* =========================
-              BLOG
-          ========================= */}
-
-          
-
-
-          {/* =========================
-              CONTACT
-          ========================= */}
-
-          <Route
-            path="/contact"
-            element={<Contact />}
-          />
-
-
-          {/* =========================
-              UNKNOWN ROUTES
-          ========================= */}
-
-          <Route
-            path="*"
-            element={<Navigate to="/" replace />}
-          />
-
+          {/* Redirect unknown routes */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-
-      </main>
-
+      </div>
 
       {/* Global Footer */}
       <Footer />
-
     </div>
   );
 }
-

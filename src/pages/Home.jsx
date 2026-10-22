@@ -1,4 +1,4 @@
-
+import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import heroVideo from "../images/ajms-hero.mp4";
 import service1 from "../images/service-1.png";
@@ -73,6 +73,14 @@ export default function Home() {
 
   return (
     <main className="bg-[#f7fafc] text-[#071b2d]">
+
+      <SEO
+  title="AJ Marine Services | Marine & Diving Services in Tuticorin"
+  description="AJ Marine Services provides commercial diving,
+  underwater inspections, hull cleaning, propeller polishing
+  and marine support from Tuticorin, India."
+  path="/"
+/>
 
       {/* =====================================================
           HERO VIDEO SECTION

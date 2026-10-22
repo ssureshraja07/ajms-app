@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 
 import { motion } from "framer-motion";
 import {
@@ -48,6 +49,11 @@ export default function PortCoverage() {
 
   return (
     <div className="min-h-screen bg-[#f7fafc] text-[#071b2d]">
+      <SEO
+        title="Marine Services Across Indian Ports | AJ Marine Services"
+        description="AJ Marine Services is based in Tuticorin and supports marine, underwater inspection and maintenance requirements across major ports in India."
+        path="/ports"
+      />
 
       {/* =====================================================
           NAVBAR

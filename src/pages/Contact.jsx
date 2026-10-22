@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import Reveal from "../components/Reveal";
+import SEO from "../components/SEO";
 import contactbg from "../images/contactbg.png";
 
 const contactOptions = [
@@ -46,6 +47,12 @@ const contactOptions = [
 export default function Contact() {
   return (
     <>
+      <SEO
+        title="Contact AJ Marine Services | Marine Services in Tuticorin"
+        description="Contact AJ Marine Services in Tuticorin, India, for commercial diving, hull cleaning, underwater surveys, propeller polishing and marine maintenance enquiries."
+        path="/contact"
+      />
+
       <section
         className="relative overflow-hidden py-24 text-white"
         style={{
@@ -110,16 +117,16 @@ export default function Contact() {
                   rel={item.href.startsWith("http") ? "noreferrer" : undefined}
                   className="group flex aspect-square w-full flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-cyan-200 hover:shadow-2xl"
                 >
-                 {/* Icon */}
-<div
-  className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl transition duration-300 group-hover:scale-110"
-  style={{
-    backgroundColor: `${item.color}1A`, // 10% light background
-    color: item.color,
-  }}
->
-  <Icon size={28} />
-</div>
+                  {/* Icon */}
+                  <div
+                    className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl transition duration-300 group-hover:scale-110"
+                    style={{
+                      backgroundColor: `${item.color}1A`,
+                      color: item.color,
+                    }}
+                  >
+                    <Icon size={28} />
+                  </div>
 
                   {/* Title */}
                   <h3 className="mt-5 text-lg font-black text-slate-900">
@@ -146,7 +153,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="container-shell py-16 text-center mt-0">
+      <section className="container-shell mt-0 py-16 text-center">
         <p className="text-slate-600">Looking for a specific marine service?</p>
         <Link
           to="/services"
