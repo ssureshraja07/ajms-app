@@ -208,11 +208,11 @@ export default function Home() {
                 />
 
                 <p className="text-4xl font-bold">
-                  Professional Equipment
+                  24/7
                 </p>
 
                 <p className="mt-2 text-sm text-slate-500">
-                  Marine Safety
+                  Response
                 </p>
 
               </div>

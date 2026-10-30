@@ -70,7 +70,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-shell flex flex-col justify-between gap-2 py-5 text-xs text-slate-500 md:flex-row">
-          <span className="font-['Rajdhani'] font-bold uppercase tracking-[0.2em] text-cyan-300">© {new Date().getFullYear()} AJMS MARINE. All rights reserved.</span>
+          <span className="font-['Rajdhani'] font-bold uppercase tracking-[0.2em] text-cyan-300">© {new Date().getFullYear()} AJ MARINE SERVICES. All rights reserved.</span>
           <span className="font-['Rajdhani'] font-bold uppercase tracking-[0.2em] text-cyan-300">
   ★ Established In 2020
 </span>
