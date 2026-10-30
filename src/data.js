@@ -295,39 +295,7 @@ export const services = [
     details: [],
 
     sections: [
-      {
-        heading: "Our Vision",
-        paragraphs: [
-          "Our vision is to become market leaders in providing world-class underwater services in both the inshore and offshore industries.",
-          "Starting with a solid foundation of great divers, our experienced team comprises dedicated personnel coming from a variety of different backgrounds. We consider our diversity our core strength as it gives us the ability to take on any challenge and tackle any job.",
-        ],
-        image: vision,
-      },
-
-      {
-        heading: "A Full-Service Company",
-        paragraphs: [
-          "AJ MARINE SERVICES is proud to be a full-service company.",
-          "We make every effort to ensure a seamless and worry-free experience between us and our clients, from start to finish.",
-          "We use internationally recognized surface-supplied divers who are adaptable in any range of tasks, giving you the highest quality work at the best possible price.",
-        ],
-        image: full,
-        reverse: true,
-      },
-
-      {
-        heading: "Our Commercial Diving Services Include",
-        note: "(but are not limited to)",
-        items: [
-          "Surface-supplied diving support systems",
-          "CCTV video recording suite with voice communications",
-          "Inspections with internationally certified divers",
-          "Damage profiling and assessments",
-          "Construction / inshore services",
-          "Jetties, piers, marinas, and docks",
-        ],
-        image: commercial,
-      },
+    
     ],
 
     // 14 diving service categories - rendered by <ServiceGroups /> in ServiceDetails.jsx

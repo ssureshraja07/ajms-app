@@ -16,26 +16,25 @@ export default function Footer() {
               <img
               src={ajmsLogo}
               alt="AJMS Marine Services"
-              className="h-16 w-16 object-contain"
+              className="h-12 w-12 object-contain"
             />
               {/* AJ - Left */}
-              <h1 className="bg-gradient-to-b from-white to-cyan-300 bg-clip-text font-['Orbitron'] text-4xl font-black tracking-[0.12em] text-transparent">
-                AJ
-              </h1>
+              <span className="bg-gradient-to-b from-white to-cyan-300 bg-clip-text font-['Montserrat'] text-3xl font-black tracking-[0.08em] text-transparent">
+      AJ
+    </span>
 
               {/* Divider line */}
               <span className="h-10 w-px bg-gradient-to-b from-transparent via-cyan-300/70 to-transparent" />
 
               {/* MARINE + SERVICES - Right */}
               <div className="flex flex-col leading-none">
-                <p className="font-['Rajdhani'] text-[15px] font-bold tracking-[0.35em] text-white">
-                  MARINE
-                </p>
-
-                <p className="mt-1 font-['Rajdhani'] text-[15px] font-semibold tracking-[0.35em] text-cyan-300">
-                  SERVICES
-                </p>
-              </div>
+      <span className="font-['Montserrat'] text-[12px] font-extrabold tracking-[0.3em] text-white">
+        MARINE
+      </span>
+      <span className="mt-1 font-['Montserrat'] text-[12px] font-semibold tracking-[0.3em] text-cyan-300">
+        SERVICES
+      </span>
+    </div>
             </div>
 
             

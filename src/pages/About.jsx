@@ -176,11 +176,11 @@ export default function About() {
       />
       {/* Hero */}
       <section
-        className="relative overflow-hidden py-50 text-white bg-no-repeat bg-center bg-contain lg:bg-cover"
+        className="relative flex min-h-[420px] items-center overflow-hidden py-20 text-white sm:min-h-[520px] sm:py-28 lg:min-h-[620px] lg:py-36"
         style={{
           backgroundImage: `url(${aboutbg})`,
-          backgroundSize: "100% auto",
-          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
         }}
       >
